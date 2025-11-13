@@ -1,5 +1,16 @@
 /* Paleta de Cores: #1a1a1a (Preto Escuro) | #333 (Cinza Escuro) | #ff6600 (Laranja Vibrante) | #ffffff (Branco) */
+:root {
+  --cor-fundo-base: #1A1A1A;
+  --cor-texto-principal: #FFFFFF;
+  --cor-destaque-primaria: #E74C3C; /* Vermelho Energia */
+  --cor-destaque-secundaria: #1ABC9C; /* Ciano Frio */
+}
 
+body {
+  background-color: var(--cor-fundo-base);
+  color: var(--cor-texto-principal);
+  /* Use uma fonte forte e sem serifa aqui, como 'Roboto' ou 'Montserrat' (vamos fazer isso depois!) */
+}
 body {
     font-family: 'Arial', sans-serif;
     background-color: #1a1a1a; /* Fundo escuro para força */
@@ -52,19 +63,28 @@ h2, h3 {
 
 /* Botão de Ação (CTA) */
 .cta-button {
-    display: inline-block;
-    background-color: #ff6600; /* Laranja vibrante */
-    color: #ffffff;
-    padding: 12px 25px;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 5px;
-    margin-top: 20px;
-    transition: background-color 0.3s;
+  display: inline-block;
+  padding: 15px 30px; /* Mais preenchimento para ser grande */
+  background-color: var(--cor-destaque-primaria); /* Fundo Vermelho */
+  color: var(--cor-texto-principal); /* Texto Branco */
+  border: none;
+  border-radius: 8px; /* Bordas levemente arredondadas */
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: 700; /* Negrito */
+  letter-spacing: 1px;
+  font-size: 1.1em;
+  transition: background-color 0.3s ease, transform 0.1s ease; /* Transições suaves */
+  box-shadow: 0 4px 10px rgba(231, 76, 60, 0.4); /* Sombra que destaca o vermelho */
 }
 
 .cta-button:hover {
-    background-color: #cc5200; /* Laranja mais escuro ao passar o mouse */
+  background-color: #CC4438; /* Vermelho ligeiramente mais escuro ao passar o mouse */
+  transform: translateY(-2px); /* Efeito de "levantar" */
+}
+
+.cta-button:active {
+  transform: translateY(0); /* Efeito de "clique" */
 }
 
 /* Estilo dos Itens de Serviço */
@@ -94,4 +114,187 @@ footer {
     color: #999;
     font-size: 0.9em;
     border-top: 1px solid #333;
+}
+
+/* 1. Fonte principal para todo o corpo do texto (legibilidade) */
+body {
+    background-color: var(--cor-fundo-base);
+    color: var(--cor-texto-principal);
+    font-family: 'Roboto', sans-serif; /* Aplica a fonte Roboto */
+    line-height: 1.6; /* Aumenta o espaçamento entre linhas para melhor leitura */
+}
+
+/* 2. Fonte para Títulos (Impacto e Força) */
+h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif; /* Aplica a fonte Montserrat */
+    color: var(--cor-texto-principal); /* Mantém branco, mas pode usar o vermelho de destaque! */
+    text-transform: uppercase; /* Deixa todos os títulos em maiúsculas para mais impacto */
+    margin-bottom: 10px;
+}
+
+h1 {
+    font-size: 3em; /* Tamanho grande para o título principal */
+    font-weight: 900; /* Negrito Extremo */
+    color: var(--cor-destaque-primaria); /* Destaque o h1 com o Vermelho Energia */
+}
+
+h2 {
+    font-size: 2em;
+    font-weight: 700;
+}
+
+/* =================================== */
+/* MEDIA QUERY: TABLET E DESKTOP    */
+/* =================================== */
+
+@media (min-width: 768px) {
+    
+    /* 1. Otimizar a leitura em telas maiores */
+    body {
+        /* Centraliza o conteúdo e limita a largura máxima para leitura confortável */
+        max-width: 1200px; 
+        margin: 0 auto;
+        padding: 0 20px; /* Adiciona um padding nas laterais */
+    }
+
+    /* 2. Ajustar o tamanho dos títulos para desktop */
+    h1 {
+        font-size: 4em; /* Aumenta o tamanho do título principal */
+    }
+
+    /* 3. Layout de Serviços (Exemplo com Flexbox ou Grid) */
+    /* Se seus serviços (Treinamento Funcional, Musculação) estiverem em uma div principal: */
+    .servicos-container {
+        display: flex; /* Transforma em layout flexível */
+        gap: 20px; /* Adiciona espaçamento entre os blocos */
+        justify-content: space-between;
+        padding: 40px 0;
+    }
+
+    /* Ajustar os blocos de serviço para que ocupem 1/3 da tela */
+    .servico-item {
+        width: 30%; /* Cada bloco ocupa cerca de 30% da largura */
+    }
+}
+
+/* =================================== */
+/* MOBILE FIRST (PADRÃO)           */
+/* =================================== */
+
+/* Estilo para os blocos de serviço em geral (Funciona bem no celular) */
+.servico-item {
+    background-color: #2c2c2c; /* Um cinza escuro para dar profundidade ao bloco */
+    padding: 20px;
+    margin-bottom: 20px; /* Espaço entre os blocos (no celular) */
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Deixa o título do serviço com a cor de destaque secundária (Ciano Frio) */
+.servico-item h4 {
+    color: var(--cor-destaque-secundaria); 
+    text-transform: uppercase;
+    font-size: 1.2em;
+    margin-top: 0;
+}
+
+
+/* =================================== */
+/* MEDIA QUERY: TABLET E DESKTOP    */
+/* =================================== */
+
+@media (min-width: 768px) {
+    
+    /* 1. Usar Flexbox para alinhar os itens em colunas */
+    #servicos {
+        display: flex;
+        /* Alinha o título "Nossos Serviços" (h3) acima dos blocos. 
+           Envolvemos os itens de serviço em um novo container */
+        flex-wrap: wrap; /* Permite que os itens envolvam para uma nova linha se for preciso */
+        justify-content: space-between;
+        gap: 20px; /* Espaçamento entre as colunas */
+    }
+
+    /* O título da seção (h3) precisa de 100% da largura para ficar no topo */
+    #servicos h3 {
+        width: 100%;
+        text-align: center; /* Centraliza o título */
+        margin-bottom: 30px;
+    }
+    
+    /* 2. Definir a largura dos blocos para 3 colunas */
+    .servico-item {
+        /* Calcula 33.33% menos um pouco do espaço entre eles (gap).
+           Isso garante 3 colunas em uma linha. */
+        width: calc(33.33% - 15px); 
+        margin-bottom: 0; /* Remove a margem inferior para não bagunçar o layout */
+    }
+}
+
+/* =================================== */
+/* ESTILO BASE DOS CARDS (MOBILE FIRST)*/
+/* =================================== */
+
+.plano-card {
+    background-color: #2c2c2c; /* Cinza Escuro */
+    padding: 30px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    border: 2px solid transparent; /* Base para o hover */
+}
+
+/* Título do Plano (h4) */
+.plano-card h4 {
+    color: var(--cor-destaque-secundaria); /* Ciano Frio */
+    font-size: 1.5em;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+/* Lista de benefícios */
+.plano-card ul {
+    list-style: none; /* Remove os marcadores de lista */
+    padding: 0;
+    margin-bottom: 30px;
+}
+
+.plano-card ul li {
+    padding: 8px 0;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+/* Destaque para o Plano Premium (Melhor opção) */
+.plano-destaque {
+    background-color: #383838; /* Um pouco mais escuro */
+    border-color: var(--cor-destaque-primaria); /* Borda Vermelha de Energia */
+    transform: scale(1.05); /* Faz o card premium ser ligeiramente maior */
+}
+
+.plano-destaque h4 {
+    color: var(--cor-destaque-primaria); /* Título em Vermelho */
+}
+
+/* =================================== */
+/* MEDIA QUERY: TABLET E DESKTOP    */
+/* =================================== */
+
+@media (min-width: 768px) {
+    
+    /* Configura o container para exibir os cards lado a lado */
+    .planos-container {
+        display: flex;
+        justify-content: center;
+        gap: 30px; /* Espaçamento entre os cards */
+        padding: 40px 0;
+    }
+
+    /* Define que os cards ocupem metade da largura, subtraindo o gap */
+    .plano-card {
+        width: calc(50% - 15px); 
+        margin-bottom: 0;
+    }
+    
+    /* Para 3 ou mais planos, use: width: calc(33.33% - 20px); */
 }
