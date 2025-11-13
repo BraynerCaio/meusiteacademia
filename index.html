@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css"> 
     <title>PowerFit - Sua Academia</title>
 </head>
 <body>
-    <header>
-        <h1>💪 PowerFit Academia</h1>
-        <p class="tagline">Seu caminho para a força e vitalidade.</p>
-    </header>
+    <header id="hero">
+    <div class="hero-content">
+        <h1>PowerFit Academia</h1>
+        <p>Seu corpo, sua força, seu poder. Transforme-se conosco!</p> <a href="#planos" class="cta-button">Conheça Nossos Planos</a>
+    </div>
+</header>
     
     <main>
         <section class="apresentacao">
@@ -36,10 +39,27 @@
         </section>
 
         <section id="planos">
-            <h3>Planos de Mensalidade</h3>
-            <p>**Plano Básico:** Musculação livre.</p>
-            <p>**Plano Premium:** Musculação + todas as aulas + avaliação física mensal.</p>
-        </section>
+    <h3>Planos de Mensalidade</h3>
+    <div class="planos-container"> <div class="plano-card">
+            <h4>Plano Básico</h4> <ul>
+                <li>Musculação livre.</li>
+                <li>Acesso em horário comercial.</li>
+                <li>Avaliação física inicial.</li>
+            </ul>
+            <a href="#contato" class="botao">Escolher Plano</a>
+        </div>
+        
+        <div class="plano-card plano-destaque"> <h4>Plano Premium</h4>
+            <ul>
+                <li>Musculação livre.</li>
+                <li>Todas as aulas (Yoga, Funcional, etc.).</li>
+                <li>Avaliação física mensal.</li>
+                <li>Acesso ilimitado 24h.</li>
+            </ul>
+            <a href="#contato" class="botao">Melhor Opção</a>
+        </div>
+    </div>
+</section>
     </main>
     
     <footer>
@@ -48,3 +68,4 @@
     </footer>
 </body>
 </html>
+
