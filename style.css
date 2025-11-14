@@ -1,0 +1,428 @@
+/* --- Váriaveis de Cores --- */
+:root {
+  --cor-fundo-claro: #F8F8F8; /* Base do site, quase branco */
+  --cor-fundo-escuro: #1A1A1A; /* Para rodapé e menus de destaque */
+  --cor-texto-base: #333333; /* Texto Principal */
+  --cor-destaque: #FF6600; /* Laranja Energia, a cor dos CTAs */
+}
+
+/* --- Reset e Base do Corpo --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--cor-fundo-claro);
+    color: var(--cor-texto-base);
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    padding-top: 80px; /* Deixa espaço para o Menu Fixo */
+}
+
+section {
+    padding: 80px 20px;
+    margin: 0 auto;
+    max-width: 1200px; /* Conteúdo centralizado */
+    text-align: center;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--cor-fundo-escuro); 
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+h2 {
+    margin-bottom: 40px;
+    font-size: 2.2em;
+}
+
+#navbar {
+    background-color: var(--cor-fundo-claro); /* Fundo Claro */
+    color: var(--cor-texto-base);
+    padding: 20px 40px;
+    position: fixed; /* Menu FIXO no topo */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex; /* Flexbox para alinhar logo e links */
+    justify-content: space-between; /* Espaço entre logo e links */
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Sombra suave */
+    max-width: 100vw; /* Garante que não ultrapasse a largura da tela */
+}
+
+/* Estilo da Logo "PowerFit" */
+.logo {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8em;
+    font-weight: 900;
+    color: var(--cor-destaque); /* Laranja Energia */
+    text-transform: uppercase;
+}
+
+/* Container dos Links */
+.nav-links {
+    list-style: none;
+    
+    gap: 30px; /* Espaço entre os links */
+}
+
+/* Estilo dos Links */
+.nav-links a {
+    color: var(--cor-texto-base);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+/* Efeito ao passar o mouse */
+.nav-links a:hover {
+    color: var(--cor-destaque); /* Hover em Laranja Energia */
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: var(--cor-destaque); /* Laranja Energia */
+    color: var(--cor-fundo-claro); /* Texto Claro */
+    border: none;
+    border-radius: 4px; /* Bordas levemente retas */
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-size: 1.1em;
+    text-decoration: none; /* Garante que links como botões não tenham sublinhado */
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+}
+
+.cta-button:hover {
+    background-color: #E65C00; /* Laranja ligeiramente mais escuro */
+    transform: translateY(-2px); /* Efeito de "levantar" */
+}
+
+/* =================================== */
+/* HERO SECTION (Seção Principal)      */
+/* =================================== */
+
+#hero {
+    /* Retiramos o padding-top do body, mas a Hero precisa de altura */
+    min-height: calc(100vh - 80px); /* Ocupa 100% da altura da tela menos a altura do menu fixo */
+    
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Centraliza o conteúdo verticalmente */
+    text-align: center;
+    
+    background-color: var(--cor-fundo-claro); /* Fundo claro para o visual limpo */
+}
+
+.hero-content {
+    max-width: 800px; /* Limita o container interno */
+    padding: 0 20px;
+}
+
+#hero h1 {
+    font-size: 3.5em; 
+    margin-bottom: 20px;
+    line-height: 1.1;
+    color: var(--cor-fundo-escuro); /* Título em Preto */
+}
+
+#hero p {
+    font-size: 1.3em;
+    margin-bottom: 40px;
+    color: var(--cor-texto-base);
+}
+
+/* MEDIA QUERY: Ajusta o tamanho da fonte em telas grandes */
+@media (min-width: 768px) {
+    #hero h1 {
+        font-size: 5em; 
+    }
+}
+
+/* Container de Serviços para alinhar em colunas (Flexbox) */
+#servicos .cards-container {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 30px;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+/* Estilo de cada Item de Serviço (O cartão em si) */
+.servico-item {
+    background-color: #FFFFFF; /* Fundo Branco Limpo */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05); /* Sombra MUITO suave */
+    transition: transform 0.3s ease, border 0.3s ease;
+    text-align: left;
+    border: 1px solid transparent; /* Borda para o efeito hover */
+    
+    width: 100%; /* Largura total em telas pequenas */
+    max-width: 350px; 
+}
+
+/* Efeito de destaque ao passar o mouse */
+.servico-item:hover {
+    transform: translateY(-5px); /* Efeito de "levantar" */
+    border-color: var(--cor-destaque); /* Borda Laranja Energia */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); 
+}
+
+/* Título do Serviço (H4) */
+.servico-item h4 {
+    color: var(--cor-destaque); /* Laranja Energia */
+    margin-bottom: 10px;
+    font-size: 1.3em;
+}
+
+/* MEDIA QUERY: Alinha em 3 colunas para Desktop */
+@media (min-width: 768px) {
+    .servico-item {
+        /* Cria 3 colunas, descontando o espaçamento (gap) */
+        width: calc(33.33% - 20px); 
+    }
+}
+
+/* Container de Planos para alinhar em 2 colunas */
+#planos .cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+/* Estilo de cada Cartão de Plano */
+.plano-card {
+    background-color: #FFFFFF; /* Fundo Branco */
+    padding: 0;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    overflow: hidden; 
+    width: 100%;
+    max-width: 400px;
+    border: 1px solid #E0E0E0; 
+}
+
+/* Área de Destaque do Título/Preço (Topo do cartão) */
+.plano-card h4 {
+    background-color: var(--cor-fundo-escuro); /* Fundo Preto Principal */
+    color: #FFFFFF; /* Texto Branco */
+    padding: 20px 0;
+    margin: 0;
+    font-size: 1.5em;
+}
+
+/* Lista de Benefícios (Se você usar lista UL/LI) */
+.plano-card ul {
+    list-style: none;
+    padding: 30px 20px;
+    text-align: left;
+}
+
+.plano-card ul li {
+    padding: 10px 0;
+    border-bottom: 1px dashed #E0E0E0;
+    font-size: 0.95em;
+}
+
+/* Botão de Ação dentro do Card */
+.plano-card .cta-button {
+    display: block;
+    width: 100%;
+    border-radius: 0; 
+    padding: 20px;
+    /* Usa os estilos de hover e cor do .cta-button global */
+}
+
+/* MEDIA QUERY: Alinha em 2 colunas para Desktop */
+@media (min-width: 768px) {
+    .plano-card {
+        /* Cria 2 colunas, descontando o espaçamento (gap) */
+        width: calc(50% - 20px); 
+    }
+}
+
+/* =================================== */
+/* RODAPÉ/CONTATO                      */
+/* =================================== */
+
+#contato {
+    background-color: var(--cor-fundo-escuro); /* Fundo Preto Principal */
+    color: var(--cor-fundo-claro); /* Texto Claro */
+    padding: 60px 20px 20px 20px;
+    text-align: left;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto 30px auto;
+    gap: 30px; /* Espaço entre as colunas do rodapé */
+}
+
+.footer-section {
+    padding-bottom: 20px;
+    width: 100%; /* Ocupa 100% no mobile */
+}
+
+/* Títulos do Rodapé */
+.footer-section h4 {
+    color: var(--cor-destaque); /* Laranja Energia */
+    font-size: 1.2em;
+    margin-bottom: 15px;
+}
+
+/* Links do Rodapé */
+.footer-section a {
+    color: var(--cor-fundo-claro);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.footer-section a:hover {
+    color: var(--cor-destaque); /* Hover Laranja Energia */
+}
+
+/* Lista de Links */
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 8px;
+}
+
+/* Rodapé Inferior (Copyright) */
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+    text-align: center;
+    font-size: 0.85em;
+    color: #AAAAAA;
+}
+
+/* MEDIA QUERY: Alinha em 3 colunas para Desktop */
+@media (min-width: 768px) {
+    .footer-section {
+        /* Cria 3 colunas (aproximadamente) */
+        width: calc(33.33% - 20px); 
+    }
+}
+
+/* =================================== */
+/* EFEITO SMOOTH SCROLL (ROLAGEM SUAVE)*/
+/* =================================== */
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* =================================== */
+/* OTIMIZAÇÃO MOBILE: MENU HAMBURGUER  */
+/* =================================== */
+
+/* Estilo do Botão Hamburguer */
+.hamburger {
+    display: block; /* O botão só aparece em mobile por padrão */
+    background: none;
+    border: none;
+    color: var(--cor-destaque); /* Cor Laranja */
+    font-size: 2em;
+    cursor: pointer;
+    z-index: 1001; /* Garante que fique acima de tudo */
+}
+
+/* No Mobile, a lista de links deve ser ocultada */
+.nav-links {
+    /* Mude 'display: flex;' que tínhamos antes para: */
+    display: none; 
+    /* E use absolute positioning para ela cobrir a tela quando aberta (faremos isso depois) */
+}
+
+/* =================================== */
+/* MEDIA QUERY: Desktop (Quebra Mobile) */
+/* =================================== */
+
+@media (min-width: 768px) {
+    /* No Desktop: Oculta o Hamburguer e Exibe os Links */
+    
+    .hamburger {
+        display: none; /* Esconde o botão hamburguer no desktop */
+    }
+
+    .nav-links {
+        display: flex; /* Exibe os links em linha no desktop */
+        position: static; /* Remove o posicionamento absoluto se aplicável */
+        background: none;
+        width: auto;
+        padding: 0;
+    }
+}
+
+/* =================================== */
+/* ESTILO: MENU ABERTO (ATIVAÇÃO JS)   */
+/* =================================== */
+
+.nav-links.nav-active {
+    /* Estilo para quando o menu estiver aberto */
+    display: flex; /* Faz o menu aparecer */
+    flex-direction: column; /* Links um abaixo do outro */
+    
+    /* Configura o menu para ocupar a tela toda */
+    position: absolute;
+    top: 0; /* Começa do topo */
+    left: 0;
+    width: 100%;
+    height: 100vh; /* Ocupa a altura total da tela */
+    
+    background-color: var(--cor-fundo-escuro); /* Fundo escuro para destacar */
+    padding-top: 80px; /* Espaço para a logo/hamburguer */
+    
+    /* Centraliza os links */
+    justify-content: center; 
+    align-items: center; 
+    
+    /* Espaçamento maior para cada link */
+    gap: 40px; 
+}
+
+/* Deixa o link grande e branco no menu mobile */
+.nav-links.nav-active a {
+    font-size: 1.5em;
+    color: var(--cor-fundo-claro); 
+}
+
+/* Estilo para Ícones dentro dos Títulos de Serviço */
+.servico-item h4 i {
+    color: var(--cor-destaque); /* Laranja Energia */
+    margin-right: 8px;
+    font-size: 1.1em; /* Levemente maior que o texto */
+}
+
+/* Estilo para os Ícones de Redes Sociais no Rodapé */
+.social-icons a {
+    color: var(--cor-fundo-claro); /* Ícones Brancos */
+    font-size: 1.5em;
+    margin-right: 15px;
+    transition: color 0.2s;
+}
+
+.social-icons a:hover {
+    color: var(--cor-destaque); /* Efeito Hover Laranja Energia */
+}
+
